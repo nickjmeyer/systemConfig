@@ -1,21 +1,24 @@
 #!/usr/bin/python3
 import os,re
 
-def appFile(files,src,dest):
+def srcDestPair(src,dest):
     if(re.search(re.compile("/$"),dest)):
         dest = os.path.join(dest,os.path.basename(src))
-    files.append({'src':src, 'dest':dest})
+    return({'src':src, 'dest':dest})
 
 home = os.path.expanduser("~/")
-srcDir = os.path.join(home,"dotFiles")
+srcDir = os.path.join(home,"systemConfig","dotFiles")
 destDir = home
-dotFiles = []
-appFile(dotFiles,os.path.join(srcDir,".bash_profile"),destDir)
-appFile(dotFiles,os.path.join(srcDir,".bashrc"),destDir)
-appFile(dotFiles,os.path.join(srcDir,".emacs"),destDir)
+dotFiles = [".bash_profile",
+            ".bashrc",
+            ".emacs",
+            ".dircolors",
+            ".xbindkeysrc",
+            ".xinitrc",
+            ".Xresources"]
+dotFiles = [ srcDestPair(os.path.join(srcDir,f),destDir) for f in dotFiles]
 
 if __name__ == "__main__":
-    print(os.path.isdir(srcDir))
     if os.path.isdir(srcDir) :
         for f in dotFiles:
             os.symlink(f['src'],f['dest'])

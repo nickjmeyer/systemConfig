@@ -1,0 +1,13 @@
+XTerm*termName: xterm-256color
+XTerm*selectToClipboard: true
+
+XTerm*saveLines: 4096
+XTerm*cursorBlink: true
+
+XTerm*background: #000000
+XTerm*foreground: #A0A0A0
+XTerm*faceName: inconsolata:size=10
+
+! XTerm*background: #FFFFCC
+! XTerm*foreground: #333333
+! XTerm*faceName: inconsolata:size=16
