@@ -1,5 +1,10 @@
 (add-to-list 'load-path "/home/nick/Dropbox/Emacs/modes/")
 
+(add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
+(add-to-list 'default-frame-alist '(background-color . "#101010"))
+
+
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
@@ -146,10 +151,6 @@
 ;; okular viewer
 (setq TeX-view-program-list '(("Okular" "okular --unique %o#src:%n%b")))
 (setq TeX-view-program-selection '((output-pdf "Okular")))
-
-
-;; (add-to-list 'default-frame-alist '(foreground-color . "#EODFDB"))
-;; (add-to-list 'default-frame-alist '(background-color . "#102372"))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
