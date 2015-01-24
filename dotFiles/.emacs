@@ -14,6 +14,8 @@
 (setq visible-cursor 1)
 (setq blink-cursor-mode 1)
 
+(show-paren-mode 1)
+
 (setq column-number-mode t)
 
 (setq tetris-score-file "~/Dropbox/Emacs/tetris-scores")
@@ -295,6 +297,7 @@
  '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground "magenta"))))
  '(font-lock-string-face ((t (:foreground "DarkOrange1"))))
  '(font-lock-type-face ((t (:foreground "lime green"))))
- '(font-lock-variable-name-face ((t (:foreground "deep pink")))))
+ '(font-lock-variable-name-face ((t (:foreground "deep pink"))))
+ '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1")))))
 
 
