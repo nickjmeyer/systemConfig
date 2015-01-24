@@ -270,7 +270,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(dired-listing-switches "-l -h --group-directories-first -X"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -280,8 +280,7 @@
  '(font-lock-constant-face ((t (:foreground "cyan1"))))
  '(font-lock-function-name-face ((t (:foreground "royal blue"))))
  '(font-lock-keyword-face ((t (:foreground "goldenrod"))))
- '(font-lock-preprocessor-face ((t (:inherit
- font-lock-builtin-face :foreground "magenta"))))
+ '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground "magenta"))))
  '(font-lock-string-face ((t (:foreground "DarkOrange1"))))
  '(font-lock-type-face ((t (:foreground "lime green"))))
  '(font-lock-variable-name-face ((t (:foreground "deep pink")))))
