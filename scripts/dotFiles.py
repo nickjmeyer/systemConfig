@@ -15,12 +15,15 @@ dotFiles = [".bash_profile",
             ".dircolors",
             ".xbindkeysrc",
             ".xinitrc",
-            ".Xresources"]
+            ".Xresources",
+            ".gitignore_global"]
 dotFiles = [ srcDestPair(os.path.join(srcDir,f),destDir) for f in dotFiles]
 
 if __name__ == "__main__":
     if os.path.isdir(srcDir) :
         for f in dotFiles:
+            if os.path.islink(f['dest']):
+                os.unlink(f['dest'])
             os.symlink(f['src'],f['dest'])
     else:
         print("Source directory \""+srcDir+"\" does not exist.")
