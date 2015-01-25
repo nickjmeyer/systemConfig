@@ -1,3 +1,6 @@
+(global-auto-revert-mode 1)
+(setq auto-revert-check-vc-info t)
+
 (add-to-list 'load-path "/home/nick/systemConfig/emacsConfig/")
 
 (add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
