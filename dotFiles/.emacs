@@ -175,6 +175,7 @@
 
 (if (locate-library "julia-mode.el")
     (progn
+      (setq inferior-julia-program-name "/bin/julia")
       (message "Loading julia-mode.el"))
   (message "Cannot locate julia-mode.el")
   )
