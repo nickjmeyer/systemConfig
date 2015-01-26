@@ -173,6 +173,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(if (locate-library "julia-mode.el")
+    (progn
+      (message "Loading julia-mode.el"))
+  (message "Cannot locate julia-mode.el")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;(c-set-offset (quote cpp-macro) 0 nil)
 (c-set-offset 'access-label '/)
 
