@@ -264,6 +264,7 @@
       (setq org-log-done t)
       (setq org-src-fontify-natively t)
       (setq org-confirm-babel-evaluate nil)
+      (setq org-export-html-postamble nil)
       (org-babel-do-load-languages
        'org-babel-load-languages
        '((R . t)
