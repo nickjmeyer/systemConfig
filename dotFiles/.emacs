@@ -40,6 +40,7 @@
 
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (setq eshell-prompt-function
       (lambda()
@@ -69,18 +70,6 @@
 		   '("melpa" . "http://melpa.org/packages/") t)
       (message "Loading package.el"))
   (message "Cannot locate package.el")
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(if (locate-library '"org.el")
-    (progn
-      (require 'org)
-      (define-key global-map "\C-cl" 'org-store-link)
-      (define-key global-map "\C-ca" 'org-agenda)
-      (setq org-log-done t)
-      (message "Loading org.el"))
-  (message "Cannot locate org.el")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -155,6 +144,7 @@
       (setq comint-scroll-to-bottom-on-input t)
       (setq comint-scroll-to-bottom-on-output t)
       (setq ess-swv-toggle-plug-into-AUXTeX t)
+      (setq inferior-julia-program-name "/usr/bin/julia")
       (message "Loading ess-site.el")
       )
   (message "Cannot locate ess-site.el")
@@ -265,6 +255,28 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (locate-library '"org.el")
+    (progn
+      (require 'org)
+      (define-key global-map "\C-cl" 'org-store-link)
+      (define-key global-map "\C-ca" 'org-agenda)
+      (setq org-log-done t)
+      (setq org-src-fontify-natively t)
+      (setq org-confirm-babel-evaluate nil)
+      (org-babel-do-load-languages
+       'org-babel-load-languages
+       '((R . t)
+	 (python . t)
+	 (julia . t)
+	 ))
+       (message "Loading org.el")
+       )
+  (message "Cannot locate org.el")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 
 
