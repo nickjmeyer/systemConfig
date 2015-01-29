@@ -179,6 +179,8 @@
 (add-hook 'c-mode-hook 'whitespace-mode)
 (add-hook 'c++-mode-hook 'whitespace-mode)
 (add-hook 'python-mode-hook 'whitespace-mode)
+(add-hook 'org-mode-hook '(lambda ()
+			    (auto-fill-mode 1)))
 (add-hook 'LaTeX-mode-hook '(lambda ()
 			      (auto-fill-mode 1)))
 (add-hook 'markdown-mode-hook '(lambda ()
@@ -265,6 +267,8 @@
       (setq org-src-fontify-natively t)
       (setq org-confirm-babel-evaluate nil)
       (setq org-export-html-postamble nil)
+      (setf org-highlight-latex-and-related '(latex))
+      (setf org-highlight-latex-fragments-and-specials t)
       (org-babel-do-load-languages
        'org-babel-load-languages
        '((R . t)
