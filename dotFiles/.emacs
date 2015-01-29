@@ -269,11 +269,14 @@
       (setq org-export-html-postamble nil)
       (setf org-highlight-latex-and-related '(latex))
       (setf org-highlight-latex-fragments-and-specials t)
+      ;; (setq org-export-latex-table-caption-above nil)
+      ;; (setq org-export-html-table-caption-above nil)
       (org-babel-do-load-languages
        'org-babel-load-languages
        '((R . t)
 	 (python . t)
 	 (julia . t)
+	 (latex . t)
 	 ))
        (message "Loading org.el")
        )
