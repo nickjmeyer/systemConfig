@@ -330,6 +330,9 @@
  '(font-lock-string-face ((t (:foreground "DarkOrange1"))))
  '(font-lock-type-face ((t (:foreground "lime green"))))
  '(font-lock-variable-name-face ((t (:foreground "deep pink"))))
+ '(magit-diff-file-header ((t (:inherit nil :background "gray25" :foreground "tomato" :weight semi-bold))))
+ '(magit-diff-hunk-header ((t (:inherit diff-hunk-header :background "gray25" :foreground "yellow1" :weight semi-bold))))
+ '(magit-item-highlight ((t (:inherit secondary-selection :background "dark slate blue"))))
  '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1")))))
 
 
