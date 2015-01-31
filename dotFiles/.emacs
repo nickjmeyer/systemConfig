@@ -278,6 +278,14 @@
 	 (julia . t)
 	 (latex . t)
 	 ))
+      (setq org-publish-project-alist
+	    '(("webpage"
+	       :base-directory "~/webpage/_orgs/"
+	       :base-extension "org"
+	       :publishing-directory "~/webpage/_posts/"
+	       :body-only t
+	       :publishing-function org-html-publish-to-html)
+	      ))
        (message "Loading org.el")
        )
   (message "Cannot locate org.el")
