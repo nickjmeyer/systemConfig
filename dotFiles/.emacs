@@ -141,6 +141,7 @@
     (progn    
       (require 'ess-site)
       (ess-toggle-underscore nil)
+      (setq ess-history-file nil)
       (setq comint-scroll-to-bottom-on-input t)
       (setq comint-scroll-to-bottom-on-output t)
       (setq ess-swv-toggle-plug-into-AUXTeX t)
