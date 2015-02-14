@@ -77,6 +77,7 @@
 (if (locate-library '"auctex.el")
     (progn
       (load "auctex.el" nil t t)
+      (require 'tex-site)
 
       (setq LaTeX-item-indent 0)
 
@@ -84,7 +85,7 @@
       \\\} "$"))
 
       (setq LaTeX-command-style '(("" "%(PDF)%(latex)
-      -file-line-error %S%(PDFout)")))
+      -shell-escape %S%(PDFout)")))
 
       (setq reftex-file-extensions
 	    '(("Snw" "Rnw" "nw" "tex" ".tex" ".ltx") ("bib" ".bib")))
@@ -102,7 +103,6 @@
       (message "Loading auctex.el"))
   (message "Cannot locate auctex.el")
   )
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -144,7 +144,7 @@
       (setq ess-history-file nil)
       (setq comint-scroll-to-bottom-on-input t)
       (setq comint-scroll-to-bottom-on-output t)
-      (setq ess-swv-toggle-plug-into-AUXTeX t)
+      (setq ess-swv-toggle-plug-into-AUCTeX t)
       (setq inferior-julia-program-name "/usr/bin/julia")
       (message "Loading ess-site.el")
       )
@@ -175,7 +175,6 @@
 
 ;(c-set-offset (quote cpp-macro) 0 nil)
 (c-set-offset 'access-label '/)
-
 
 (add-hook 'c-mode-hook 'whitespace-mode)
 (add-hook 'c++-mode-hook 'whitespace-mode)
@@ -290,6 +289,16 @@
        (message "Loading org.el")
        )
   (message "Cannot locate org.el")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (locate-library "arduino-mode.el")
+    (progn
+      (require 'magit)
+      (message "Loading arduino-mode.el")
+      )
+  (message "Cannot locate arduino-mode.el")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
