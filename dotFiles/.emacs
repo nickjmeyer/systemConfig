@@ -295,7 +295,13 @@
 
 (if (locate-library "arduino-mode.el")
     (progn
-      (require 'magit)
+      (require 'arduino-mode)
+      (global-ede-mode 1)
+      (require 'semantic/sb)
+      (semantic-mode 1)
+      (setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode)
+				  auto-mode-alist))
+      (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
       (message "Loading arduino-mode.el")
       )
   (message "Cannot locate arduino-mode.el")
@@ -334,7 +340,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(dired-listing-switches "-l -h --group-directories-first -X"))
+ '(dired-listing-switches "-l -h --group-directories-first -X")
+ '(ede-project-directories
+   (quote
+    ("/home/nick/Dropbox/Code/ArduinoStarter/01-Basics"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
