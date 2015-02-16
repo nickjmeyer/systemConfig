@@ -360,6 +360,7 @@
  '(magit-diff-file-header ((t (:inherit nil :background "gray25" :foreground "tomato" :weight semi-bold))))
  '(magit-diff-hunk-header ((t (:inherit diff-hunk-header :background "gray25" :foreground "yellow1" :weight semi-bold))))
  '(magit-item-highlight ((t (:inherit secondary-selection :background "dark slate blue"))))
- '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1")))))
+ '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1"))))
+ '(org-todo ((t (:foreground "orange1" :weight bold)))))
 
 
