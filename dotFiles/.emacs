@@ -1,6 +1,8 @@
 (global-auto-revert-mode 1)
 (setq auto-revert-check-vc-info t)
 
+(setq vc-follow-symlinks t)
+
 (add-to-list 'load-path "/home/nick/systemConfig/emacsConfig/")
 
 (add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
@@ -334,7 +336,6 @@
 ;;  '(web-mode-html-attr-name-face ((t (:foreground "color-21"))))
 ;;  '(web-mode-html-tag-bracket-face ((t (:foreground "color-22"))))
 ;;  '(web-mode-html-tag-face ((t (:foreground "color-22")))))
-;; (put 'narrow-to-region 'disabled nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -361,6 +362,8 @@
  '(magit-diff-hunk-header ((t (:inherit diff-hunk-header :background "gray25" :foreground "yellow1" :weight semi-bold))))
  '(magit-item-highlight ((t (:inherit secondary-selection :background "dark slate blue"))))
  '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1"))))
+ '(org-level-4 ((t (:inherit outline-4 :foreground "salmon"))))
  '(org-todo ((t (:foreground "orange1" :weight bold)))))
 
 
+(put 'narrow-to-region 'disabled nil)
