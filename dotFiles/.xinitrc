@@ -17,7 +17,7 @@ xrdb ~/.Xresources
 # xautolock -time 20 -locker "systemctl hybrid-sleep" -detectsleep &
 
 ## start dropbox
-dropboxd &
+dropbox &
 
 ## start awesome and launch dbus for automatic usb mounting via nautilus
 exec dbus-launch --exit-with-session --sh-syntax awesome
