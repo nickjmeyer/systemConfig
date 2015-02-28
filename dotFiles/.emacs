@@ -38,6 +38,8 @@
 (global-set-key (kbd "<f7>") 'kill-compilation)
 (global-set-key (kbd "<f8>") 'TeX-command-master)
 
+(setq doc-view-continuous t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq shell-file-name "bash")
@@ -84,7 +86,7 @@
       (setq LaTeX-item-indent 0)
 
       (setq LaTeX-break-at-separators '(\\\( \\\) \\\[ \\\] \\\{
-      \\\} "$"))
+					\\\} "$"))
 
       (setq LaTeX-command-style '(("" "%(PDF)%(latex)
       -shell-escape %S%(PDFout)")))
@@ -102,6 +104,13 @@
       (setq TeX-view-program-list '(("Okular" "okular --unique
       %o#src:%n%b")))
       (setq TeX-view-program-selection '((output-pdf "Okular")))
+      (add-hook 'LaTeX-mode-hook
+		(lambda ()
+		  (set
+		   (make-local-variable 'compile-command)
+		   (format "pdflatex --shell-escape -interaction=nonstopmode \"\input\" %s"
+			       (file-name-sans-extension
+				(file-name-nondirectory buffer-file-name))))))
       (message "Loading auctex.el"))
   (message "Cannot locate auctex.el")
   )
@@ -175,7 +184,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;(c-set-offset (quote cpp-macro) 0 nil)
+					;(c-set-offset (quote cpp-macro) 0 nil)
 (c-set-offset 'access-label '/)
 
 (add-hook 'c-mode-hook 'whitespace-mode)
@@ -288,8 +297,14 @@
 	       :body-only t
 	       :publishing-function org-html-publish-to-html)
 	      ))
-       (message "Loading org.el")
-       )
+      (setq org-babel-default-header-args
+	    (cons '(:exports . "both")
+		  (assq-delete-all :exports org-babel-default-header-args)))
+      (setq org-babel-default-header-args
+	    (cons '(:results . "output")
+		  (assq-delete-all :results org-babel-default-header-args)))
+      (message "Loading org.el")
+      )
   (message "Cannot locate org.el")
   )
 
@@ -363,7 +378,14 @@
  '(magit-item-highlight ((t (:inherit secondary-selection :background "dark slate blue"))))
  '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1"))))
  '(org-level-4 ((t (:inherit outline-4 :foreground "salmon"))))
- '(org-todo ((t (:foreground "orange1" :weight bold)))))
+ '(org-todo ((t (:foreground "orange1" :weight bold))))
+ ;; '(org-block-begin-line
+ ;;  ((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF"))))
+ ;; '(org-block-background
+ ;;  ((t (:background "#FFFFEA"))))
+ ;; '(org-block-end-line
+ ;;  ((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF"))))
+ )
 
 
 (put 'narrow-to-region 'disabled nil)
