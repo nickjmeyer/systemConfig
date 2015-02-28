@@ -108,7 +108,7 @@
 		(lambda ()
 		  (set
 		   (make-local-variable 'compile-command)
-		   (format "pdflatex --shell-escape -interaction=nonstopmode \"\input\" %s"
+		   (format "pdflatex --shell-escape -interaction=nonstopmode \"\\input\" %s"
 			       (file-name-sans-extension
 				(file-name-nondirectory buffer-file-name))))))
       (message "Loading auctex.el"))
