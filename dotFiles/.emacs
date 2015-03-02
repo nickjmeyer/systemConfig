@@ -39,6 +39,7 @@
 (global-set-key (kbd "<f8>") 'TeX-command-master)
 
 (setq doc-view-continuous t)
+(add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 (defun bury-compile-buffer-if-successful (buffer string)
   "Bury a compilation buffer if succeeded without warnings "
