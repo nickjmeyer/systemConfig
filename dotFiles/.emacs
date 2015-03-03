@@ -289,6 +289,7 @@
 (if (locate-library "magit.el")
     (progn
       (require 'magit)
+      (global-set-key (kbd "C-x g") 'magit-status)
       (message "Loading magit.el")
       )
   (message "Cannot locate magit.el")
