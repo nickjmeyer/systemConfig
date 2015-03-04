@@ -38,6 +38,8 @@
 (global-set-key (kbd "<f7>") 'kill-compilation)
 (global-set-key (kbd "<f8>") 'TeX-command-master)
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (setq doc-view-continuous t)
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
@@ -49,16 +51,17 @@
        (not
         (with-current-buffer buffer
           (search-forward "warning" nil t))))
-      (progn
-	(bury-buffer buffer)
-	(switch-to-prev-buffer (get-buffer-window buffer) 'kill)
-	(message "Compilation success")
-	)
-      ;; (run-with-timer 2 nil
-      ;;                 (lambda (buf)
-      ;;                   (bury-buffer buf)
-      ;;                   (switch-to-prev-buffer (get-buffer-window buf) 'kill))
-      ;;                 buffer)
+      ;; (progn
+      ;; 	(bury-buffer buffer)
+      ;; 	(switch-to-prev-buffer (get-buffer-window buffer) 'kill)
+      ;; 	(message "Compilation success")
+      ;; 	)
+      (message "Compilation success")
+    (run-with-timer 2 nil
+		    (lambda (buf)
+		      (bury-buffer buf)
+		      (switch-to-prev-buffer (get-buffer-window buf) 'kill))
+		    buffer)
     (progn
       (switch-to-buffer-other-window buffer)
       (end-of-buffer)
@@ -282,17 +285,6 @@
       (message "Loading markdown-mode.el")
       )
   (message "Cannot locate markdown-mode.el")
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(if (locate-library "magit.el")
-    (progn
-      (require 'magit)
-      (global-set-key (kbd "C-x g") 'magit-status)
-      (message "Loading magit.el")
-      )
-  (message "Cannot locate magit.el")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
