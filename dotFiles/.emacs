@@ -51,17 +51,19 @@
        (not
         (with-current-buffer buffer
           (search-forward "warning" nil t))))
-      ;; (progn
-      ;; 	(bury-buffer buffer)
-      ;; 	(switch-to-prev-buffer (get-buffer-window buffer) 'kill)
-      ;; 	(message "Compilation success")
+       ;; (progn
+       ;; 	(bury-buffer buffer)
+       ;; 	(switch-to-prev-buffer (get-buffer-window buffer) 'kill)
+       ;; 	(message "Compilation success")
       ;; 	)
-      (message "Compilation success")
-    (run-with-timer 2 nil
-		    (lambda (buf)
-		      (bury-buffer buf)
-		      (switch-to-prev-buffer (get-buffer-window buf) 'kill))
-		    buffer)
+      (progn
+	(message "Compilation success")
+	(run-with-timer 2 nil
+			(lambda (buf)
+			  (bury-buffer buf)
+			  (switch-to-prev-buffer (get-buffer-window buf) 'kill))
+			buffer)
+	)
     (progn
       (switch-to-buffer-other-window buffer)
       (end-of-buffer)
