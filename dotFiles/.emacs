@@ -398,16 +398,10 @@
  '(magit-diff-file-header ((t (:inherit nil :background "gray25" :foreground "tomato" :weight semi-bold))))
  '(magit-diff-hunk-header ((t (:inherit diff-hunk-header :background "gray25" :foreground "yellow1" :weight semi-bold))))
  '(magit-item-highlight ((t (:inherit secondary-selection :background "dark slate blue"))))
+ '(magit-tag ((t (:background "navy" :foreground "chartreuse" :weight extra-bold))))
  '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1"))))
  '(org-level-4 ((t (:inherit outline-4 :foreground "salmon"))))
- '(org-todo ((t (:foreground "orange1" :weight bold))))
- ;; '(org-block-begin-line
- ;;  ((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF"))))
- ;; '(org-block-background
- ;;  ((t (:background "#FFFFEA"))))
- ;; '(org-block-end-line
- ;;  ((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF"))))
- )
+ '(org-todo ((t (:foreground "orange1" :weight bold)))))
 
 
 (put 'narrow-to-region 'disabled nil)
