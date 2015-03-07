@@ -99,14 +99,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(if (locate-library '"package.el")
-    (progn
-      (require 'package)
-      (add-to-list 'package-archives
-		   '("melpa" . "http://melpa.org/packages/") t)
-      (message "Loading package.el"))
-  (message "Cannot locate package.el")
-  )
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/") t)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 import os,re
 
 def srcDestPair(src,dest):
@@ -14,7 +14,6 @@ dotFiles = [".bash_profile",
             ".emacs",
             ".dircolors",
             ".xbindkeysrc",
-            ".xinitrc",
             ".Xresources",
             ".gitignore_global"]
 dotFiles = [ srcDestPair(os.path.join(srcDir,f),destDir) for f in dotFiles]
@@ -22,11 +21,12 @@ dotFiles = [ srcDestPair(os.path.join(srcDir,f),destDir) for f in dotFiles]
 if __name__ == "__main__":
     if os.path.isdir(srcDir) :
         for f in dotFiles:
+            print f
             if os.path.islink(f['dest']):
                 os.unlink(f['dest'])
             os.symlink(f['src'],f['dest'])
     else:
-        print("Source directory \""+srcDir+"\" does not exist.")
+        print "Source directory \""+srcDir+"\" does not exist."
         exit(1)
 
     exit(0)
