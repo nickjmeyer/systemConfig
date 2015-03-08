@@ -308,6 +308,9 @@
       (setf org-highlight-latex-fragments-and-specials t)
       (setq org-export-latex-table-caption-above nil)
       (setq org-export-html-table-caption-above nil)
+      (setq org-latex-listings t)
+      (add-to-list 'org-latex-packages-alist '("" "listings"))
+      (add-to-list 'org-latex-packages-alist '("" "color"))
       (org-babel-do-load-languages
        'org-babel-load-languages
        '((R . t)
