@@ -15,7 +15,8 @@ dotFiles = [".bash_profile",
             ".dircolors",
             ".xbindkeysrc",
             ".Xresources",
-            ".gitignore_global"]
+            ".gitignore_global",
+            ".toprc"]
 dotFiles = [ srcDestPair(os.path.join(srcDir,f),destDir) for f in dotFiles]
 
 if __name__ == "__main__":

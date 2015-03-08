@@ -1,3 +1,5 @@
+(package-initialize)
+
 (global-auto-revert-mode 1)
 (setq auto-revert-check-vc-info t)
 
@@ -98,15 +100,21 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
+(if (locate-library "package")
+    (progn
+      (require 'package)
+      (add-to-list 'package-archives
+		   '("melpa" . "http://melpa.org/packages/") t)
+      (message "Loading package")
+      )
+  (message "Cannot locate package")
+  )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library '"auctex.el")
+
+(if (locate-library "auctex")
     (progn
       (load "auctex.el" nil t t)
       (require 'tex-site)
@@ -139,45 +147,45 @@
 		   (format "pdflatex --shell-escape -interaction=nonstopmode \"\\input\" %s"
 			       (file-name-sans-extension
 				(file-name-nondirectory buffer-file-name))))))
-      (message "Loading auctex.el"))
-  (message "Cannot locate auctex.el")
+      (message "Loading auctex"))
+  (message "Cannot locate auctex")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "preview-latex.el")
+(if (locate-library "preview-latex")
     (progn
       (load "preview-latex.el" nil t t)
-      (message "Loading preview-latex.el"))
-  (message "Cannot locate preview-latex.el")
+      (message "Loading preview-latex"))
+  (message "Cannot locate preview-latex")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "color-theme.el")
+(if (locate-library "color-theme")
     (progn
       (require 'color-theme)
       (color-theme-initialize)
-      (message "Loading color-theme.el"))
-  (message "Cannot locate color-theme.el")
+      (message "Loading color-theme"))
+  (message "Cannot locate color-theme")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "yaml-mode.el")
+(if (locate-library "yaml-mode")
     (progn
       (require 'yaml-mode)
       (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
       (add-to-list 'auto-mode-alist '("\\.Rnw\\'" . Rnw-mode))
       (add-to-list 'auto-mode-alist '("\\.Snw\\'" . Rnw-mode))
-      (message "Loading yaml-mode.el"))
-  (message "Cannot locate yaml-mode.el")
+      (message "Loading yaml-mode"))
+  (message "Cannot locate yaml-mode")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (if (locate-library "ess-site")
-    (progn    
+    (progn
       (require 'ess-site)
       (ess-toggle-underscore nil)
       (setq ess-history-file nil)
@@ -185,29 +193,29 @@
       (setq comint-scroll-to-bottom-on-output t)
       (setq ess-swv-toggle-plug-into-AUCTeX t)
       (setq inferior-julia-program-name "/usr/bin/julia")
-      (message "Loading ess-site.el")
+      (message "Loading ess-site")
       )
-  (message "Cannot locate ess-site.el")
+  (message "Cannot locate ess-site")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "whitespace.el")
+(if (locate-library "whitespace")
     (progn      
       (require 'whitespace)
       (setq whitespace-style '(lines face))
       (setq whitespace-line-column 80)
-      (message "Loading whitespace.el"))
-  (message "Cannot locate whitespace.el")
+      (message "Loading whitespace"))
+  (message "Cannot locate whitespace")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "julia-mode.el")
+(if (locate-library "julia-mode")
     (progn
       (setq inferior-julia-program-name "/bin/julia")
-      (message "Loading julia-mode.el"))
-  (message "Cannot locate julia-mode.el")
+      (message "Loading julia-mode"))
+  (message "Cannot locate julia-mode")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -234,18 +242,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(if (locate-library "make-mode.el")
+(if (locate-library "make-mode")
     (progn
       (require 'make-mode)
       (add-to-list 'auto-mode-alist '("\\.mk\\'" . makefile-gmake-mode))
-      (message "Loading make-mode.el")
+      (message "Loading make-mode")
       )
-  (message "Cannot locate make-mode.el")
+  (message "Cannot locate make-mode")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "web-mode.el")
+(if (locate-library "web-mode")
     (progn
       (require 'web-mode)
       (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -261,18 +269,18 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "lua-mode.el")
+(if (locate-library "lua-mode")
     (progn
       (require 'lua-mode)
       (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
-      (message "Loading lua-mode.el")
+      (message "Loading lua-mode")
       )
-  (message "Cannot locate lua-mode.el")
+  (message "Cannot locate lua-mode")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "markdown-mode.el")
+(if (locate-library "markdown-mode")
     (progn
       (require 'markdown-mode)
       ;; (autoload 'markdown-mode "markdown-mode"
@@ -280,14 +288,14 @@
       (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
       (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
       (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-      (message "Loading markdown-mode.el")
+      (message "Loading markdown-mode")
       )
-  (message "Cannot locate markdown-mode.el")
+  (message "Cannot locate markdown-mode")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library '"org.el")
+(if (locate-library '"org")
     (progn
       (require 'org)
       (define-key global-map "\C-cl" 'org-store-link)
@@ -321,14 +329,14 @@
       (setq org-babel-default-header-args
 	    (cons '(:results . "output")
 		  (assq-delete-all :results org-babel-default-header-args)))
-      (message "Loading org.el")
+      (message "Loading org")
       )
-  (message "Cannot locate org.el")
+  (message "Cannot locate org")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "arduino-mode.el")
+(if (locate-library "arduino-mode")
     (progn
       (require 'arduino-mode)
       (global-ede-mode 1)
@@ -337,9 +345,9 @@
       (setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode)
 				  auto-mode-alist))
       (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
-      (message "Loading arduino-mode.el")
+      (message "Loading arduino-mode")
       )
-  (message "Cannot locate arduino-mode.el")
+  (message "Cannot locate arduino-mode")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -401,3 +409,4 @@
 
 
 (put 'narrow-to-region 'disabled nil)
+

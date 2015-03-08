@@ -1,4 +1,4 @@
-auto/
+auto
 .gitignore
 *.o
 *.so

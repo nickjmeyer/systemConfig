@@ -119,6 +119,11 @@ complete -cf sudo
 complete -cf man
 complete -cf gksu
 
+## turn off bell
+if [ -n "$DISPLAY" ]; then
+    xset b off
+fi
+
 alias sudo="sudo "
 alias fucking="sudo "
 alias new="(xterm &)"
