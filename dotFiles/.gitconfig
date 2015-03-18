@@ -1,0 +1,5 @@
+[core]
+	excludesfile = /home/nick/.gitignore_global
+[user]
+	name = Nicholas J Meyer
+	email = nick.j.meyer@gmail.com

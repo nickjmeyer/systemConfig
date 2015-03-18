@@ -15,6 +15,7 @@ dotFiles = [".bash_profile",
             ".dircolors",
             ".xbindkeysrc",
             ".Xresources",
+            ".gitconfig",
             ".gitignore_global",
             ".toprc"]
 dotFiles = [ srcDestPair(os.path.join(srcDir,f),destDir) for f in dotFiles]
