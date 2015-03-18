@@ -192,7 +192,9 @@
       (setq comint-scroll-to-bottom-on-input t)
       (setq comint-scroll-to-bottom-on-output t)
       (setq ess-swv-toggle-plug-into-AUCTeX t)
-      (setq inferior-julia-program-name "/usr/bin/julia")
+      (setq inferior-julia-program-name
+	    (executable-find "julia")
+	    )
       (message "Loading ess-site")
       )
   (message "Cannot locate ess-site")
