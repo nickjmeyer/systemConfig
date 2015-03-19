@@ -1,5 +1,6 @@
 [core]
 	excludesfile = /home/nick/.gitignore_global
+	editor = emacs
 [user]
 	name = Nicholas J Meyer
 	email = nick.j.meyer@gmail.com

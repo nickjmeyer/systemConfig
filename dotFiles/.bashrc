@@ -133,7 +133,6 @@ alias ewm="'emacs' --no-splash -u '$USER'"
 alias ero="'emacs' --no-splash -u '$USER' --eval '(setq buffer-read-only t)'"
 
 export ALTERNATE_EDITOR=""
-export EDITOR=emacsclient
 
 alias top="'top' -o %CPU c"
 
@@ -165,5 +164,5 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-5.5/lib64:/lib:/usr/loca
 if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 
 export TERM=xterm-256color
-export EDITOR="emacs -nw"
+export EDITOR="emacsclient"
 export GREP_COLOR="01;36;41"
