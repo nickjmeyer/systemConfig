@@ -141,9 +141,6 @@ alias aspell="aspell -d en"
 alias shutdown="sudo shutdown 0"
 alias reboot="sudo reboot"
 
-export clsDir="/home/nick/Dropbox/gradSchool/classes"
-export resDir="/home/nick/Dropbox/research"
-export dcriDir="/home/nick/Dropbox/gradSchool/DCRI"
 
 
 R-batch(){
@@ -158,7 +155,6 @@ R-comp-so(){
 }
 
 export PATH=$PATH:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin
-export CDPATH=$CDPATH:/home/nick/Dropbox/research/:/home/nick/Dropbox/gradSchool
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-5.5/lib64:/lib:/usr/local/lib
 
 if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
@@ -166,3 +162,4 @@ if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 export TERM=xterm-256color
 export EDITOR="emacsclient"
 export GREP_COLOR="01;36;41"
+
