@@ -154,8 +154,8 @@ R-comp-so(){
     "/usr/lib/R/bin/R" CMD SHLIB "$1"
 }
 
-export PATH=$PATH:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-5.5/lib64:/lib:/usr/local/lib
+export PATH=$PATH:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin:/opt/intel/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-5.5/lib64:/lib:/usr/local/lib:/opt/intel/composer_xe_2015/mkl/lib/intel64/:/opt/intel/composer_xe_2015/compiler/lib/intel64/
 
 if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 
