@@ -43,6 +43,7 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (setq doc-view-continuous t)
+(setq doc-view-resolution 300)
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 (defun bury-compile-buffer-if-successful (buffer string)
