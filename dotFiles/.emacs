@@ -78,7 +78,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq shell-file-name "bash")
-(setq shell-command-switch "-ic")
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (setq eshell-prompt-function
