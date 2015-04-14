@@ -310,9 +310,13 @@
       (setf org-highlight-latex-fragments-and-specials t)
       (setq org-export-latex-table-caption-above nil)
       (setq org-export-html-table-caption-above nil)
-      (setq org-latex-listings t)
-      (add-to-list 'org-latex-packages-alist '("" "listings"))
+      ;; (setq org-latex-listings t)
+      ;; (add-to-list 'org-latex-packages-alist '("" "listings"))
       (add-to-list 'org-latex-packages-alist '("" "color"))
+      (add-to-list 'org-latex-packages-alist '("" "fullpage"))
+      (add-to-list 'org-latex-packages-alist '("" "amsmath"))
+      (add-to-list 'org-latex-packages-alist '("" "amssymb"))
+      (add-to-list 'org-latex-packages-alist '("" "dsfont"))
       (org-babel-do-load-languages
        'org-babel-load-languages
        '((R . t)
