@@ -48,7 +48,7 @@
 
 (defun bury-compile-buffer-if-successful (buffer string)
   "Bury a compilation buffer if succeeded without warnings "
-  (if (and
+  (if (and 
        (string-match "compilation" (buffer-name buffer))
        (string-match "finished" string)
        (not
@@ -74,6 +74,7 @@
     )
   )
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+(setq compilation-scroll-output 'first-error)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -310,7 +311,7 @@
       (setf org-highlight-latex-fragments-and-specials t)
       (setq org-export-latex-table-caption-above nil)
       (setq org-export-html-table-caption-above nil)
-      (setq org-latex-listings t)
+      (setq org-latex-listings nil)
       (add-to-list 'org-latex-packages-alist '("" "listings"))
       (add-to-list 'org-latex-packages-alist '("" "color"))
       (org-babel-do-load-languages
