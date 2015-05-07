@@ -9,6 +9,6 @@ eval $(ssh-agent)
 xset b off
 # fi
 
-emacs --daemon -u $USER
+# emacs --daemon
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
