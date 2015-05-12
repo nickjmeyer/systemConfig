@@ -1,5 +1,7 @@
 (package-initialize)
 
+(setq initial-major-mode 'org-mode)
+
 (global-auto-revert-mode 1)
 (setq auto-revert-check-vc-info t)
 
@@ -415,7 +417,8 @@
  '(magit-tag ((t (:background "navy" :foreground "chartreuse" :weight extra-bold))))
  '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1"))))
  '(org-level-4 ((t (:inherit outline-4 :foreground "salmon"))))
- '(org-todo ((t (:foreground "orange1" :weight bold)))))
+ '(org-todo ((t (:foreground "orange1" :weight bold))))
+ '(table-cell ((t (:foreground "gray80" :inverse-video nil)))))
 
 
 (put 'narrow-to-region 'disabled nil)
