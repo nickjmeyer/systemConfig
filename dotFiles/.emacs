@@ -1,6 +1,7 @@
 (package-initialize)
 
 (setq initial-major-mode 'org-mode)
+(setq initial-scratch-message "# This is a scratch Org buffer")
 
 (global-auto-revert-mode 1)
 (setq auto-revert-check-vc-info t)
