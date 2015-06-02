@@ -1,5 +1,6 @@
 auto
 .gitignore
+.ipynb_checkpoints
 *.o
 *.so
 *.d

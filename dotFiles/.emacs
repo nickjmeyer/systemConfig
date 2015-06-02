@@ -8,7 +8,8 @@
 
 (setq vc-follow-symlinks t)
 
-(add-to-list 'load-path "/home/nick/systemConfig/emacsConfig/")
+(add-to-list 'load-path "~/systemConfig/emacsConfig/")
+(load "~/nxhtml/autostart.el")
 
 (add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
 (add-to-list 'default-frame-alist '(background-color . "#222222"))
@@ -255,6 +256,17 @@
       (message "Loading make-mode")
       )
   (message "Cannot locate make-mode")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (locate-library "ein")
+    (progn
+      (require 'ein)
+      (message "Loading ein")
+      (setq ein:notebook-modes '(ein:notebook-python-mode))
+      )
+  (message "Cannot locate ein")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

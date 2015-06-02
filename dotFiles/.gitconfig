@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /home/nick/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = emacs
 [user]
 	name = Nicholas J Meyer
