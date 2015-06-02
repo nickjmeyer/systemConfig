@@ -203,11 +203,10 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (if (locate-library "whitespace")
-    (progn      
+    (progn
       (require 'whitespace)
-      (setq whitespace-style '(lines face))
+      (setq whitespace-style '(lines face trailing))
       (setq whitespace-line-column 80)
       (message "Loading whitespace"))
   (message "Cannot locate whitespace")
@@ -431,7 +430,8 @@
  '(minibuffer-prompt ((t (:foreground "DarkGoldenrod1"))))
  '(org-level-4 ((t (:inherit outline-4 :foreground "salmon"))))
  '(org-todo ((t (:foreground "orange1" :weight bold))))
- '(table-cell ((t (:foreground "gray80" :inverse-video nil)))))
+ '(table-cell ((t (:foreground "gray80" :inverse-video nil))))
+ '(whitespace-line ((t (:background "dark magenta" :foreground "green")))))
 
 
 (put 'narrow-to-region 'disabled nil)
