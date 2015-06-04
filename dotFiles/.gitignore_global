@@ -1,6 +1,8 @@
 auto
 .gitignore
 .ipynb_checkpoints
+.Rhistory
+*.pdf
 *.txt
 *.pyc
 *.o

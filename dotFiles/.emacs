@@ -9,7 +9,7 @@
 (setq vc-follow-symlinks t)
 
 (add-to-list 'load-path "~/systemConfig/emacsConfig/")
-(load "~/nxhtml/autostart.el")
+
 
 (add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
 (add-to-list 'default-frame-alist '(background-color . "#222222"))
@@ -43,8 +43,6 @@
 (global-set-key (kbd "<f6>") 'recompile)
 (global-set-key (kbd "<f7>") 'kill-compilation)
 (global-set-key (kbd "<f8>") 'TeX-command-master)
-
-(global-set-key (kbd "C-x g") 'magit-status)
 
 (setq doc-view-continuous t)
 (setq doc-view-resolution 300)
@@ -118,7 +116,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 (if (locate-library "auctex")
     (progn
       (load "auctex.el" nil t t)
@@ -154,6 +151,16 @@
 				(file-name-nondirectory buffer-file-name))))))
       (message "Loading auctex"))
   (message "Cannot locate auctex")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (locate-library "magit")
+    (progn
+      (global-set-key (kbd "C-x g") 'magit-status)
+      (setq magit-last-seen-setup-instructions "1.4.0")
+      (message "Loading magit"))
+  (message "Cannot locate magit")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
