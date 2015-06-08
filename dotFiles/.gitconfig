@@ -5,4 +5,4 @@
 	name = Nicholas J Meyer
 	email = nick.j.meyer@gmail.com
 [credential]
-	helper = --cache --timeout=1800
+	helper = cache --timeout=1800
