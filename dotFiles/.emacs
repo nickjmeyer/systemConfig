@@ -78,6 +78,14 @@
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 (setq compilation-scroll-output 'first-error)
 
+(defun delete-trailing-whitespace-verbose ()
+  "Delete trailing whitespace and notify mini-buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (message "Deleting trailing whitespace")
+  )
+(global-set-key (kbd "C-c C-d d") 'delete-trailing-whitespace-verbose)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq shell-file-name "bash")
@@ -443,4 +451,3 @@
 
 
 (put 'narrow-to-region 'disabled nil)
-
