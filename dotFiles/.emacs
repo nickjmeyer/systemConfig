@@ -85,6 +85,7 @@
   (message "Deleting trailing whitespace")
   )
 (global-set-key (kbd "C-c C-d d") 'delete-trailing-whitespace-verbose)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
