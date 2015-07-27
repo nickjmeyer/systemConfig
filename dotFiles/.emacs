@@ -63,11 +63,14 @@
       ;; 	)
       (progn
 	(message "Compilation success")
-	(run-with-timer 2 nil
-			(lambda (buf)
-			  (bury-buffer buf)
-			  (switch-to-prev-buffer (get-buffer-window buf) 'kill))
-			buffer)
+	;; (run-with-timer 2 nil
+	;; 		(lambda (buf)
+	;; 		  (bury-buffer buf)
+	;; 		  (switch-to-prev-buffer (get-buffer-window buf) 'kill))
+	;; 		buffer)
+	(bury-buffer buffer)
+	(switch-to-prev-buffer (get-buffer-window buffer) 'kill)
+
 	)
     (progn
       (switch-to-buffer-other-window buffer)
@@ -334,6 +337,7 @@
 (if (locate-library '"org")
     (progn
       (require 'org)
+      (require 'ox-html)
       (define-key global-map "\C-cl" 'org-store-link)
       (define-key global-map "\C-ca" 'org-agenda)
       (setq org-log-done t)
@@ -351,6 +355,18 @@
       (add-to-list 'org-latex-packages-alist '("" "amsmath"))
       (add-to-list 'org-latex-packages-alist '("" "amssymb"))
       (add-to-list 'org-latex-packages-alist '("" "dsfont"))
+      (add-to-list 'org-src-lang-modes
+      		   '("html" . web))
+      (defun org-custom-link-img-follow (path &rest args)
+	(org-open-file-with-emacs
+	 (format "../images/%s" path)))
+      (defun org-custom-link-img-export (path desc format &rest args)
+	(message "hello")
+	(message args)
+	(cond
+	 ((eq format 'html)
+	  (format "<img src=\"/images/%s\" alt=\"%s\"/>" path desc))))
+      (org-add-link-type "img" 'org-custom-link-img-follow 'org-custom-link-img-export)
       (org-babel-do-load-languages
        'org-babel-load-languages
        '((R . t)
@@ -359,12 +375,25 @@
 	 (latex . t)
 	 ))
       (setq org-publish-project-alist
-	    '(("webpage"
-	       :base-directory "~/webpage/_orgs/"
+	    '(("webpage-org"
+	       :base-directory "~/webpage/_org/"
 	       :base-extension "org"
-	       :publishing-directory "~/webpage/_posts/"
+	       :publishing-directory "~/webpage/"
+	       :recursive t
+	       :publishing-function org-html-publish-to-html
+	       :headline-levels 4
+	       :html-extension "html"
 	       :body-only t
-	       :publishing-function org-html-publish-to-html)
+	       :with-toc nil
+	       :section-numbers nil
+	       )
+	      ("webpage-static"
+	       :base-directory "~/webpage/_org/"
+	       :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+	       :publishing-directory "~/webpage/"
+	       :recursive t
+	       :publishing-function org-publish-attachment)
+	      ("webpage" :components ("webpage-org" "webpage-static"))
 	      ))
       (setq org-babel-default-header-args
 	    (cons '(:exports . "both")
