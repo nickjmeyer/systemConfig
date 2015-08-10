@@ -25,11 +25,16 @@ if __name__ == "__main__":
         for f in dotFiles:
             print f
             if os.path.islink(f['dest']):
+                print "unlinking " + f['dest']
                 os.unlink(f['dest'])
+            elif os.path.isfile(f['dest']):
+                print "renaming " + f['dest']
+                os.rename(f['dest'],f['dest']+".old")
+
             os.symlink(f['src'],f['dest'])
+
     else:
         print "Source directory \""+srcDir+"\" does not exist."
         exit(1)
 
     exit(0)
-        
