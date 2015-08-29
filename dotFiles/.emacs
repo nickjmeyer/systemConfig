@@ -128,7 +128,28 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(if (not (locate-library "auto-complete"))
+    (progn
+      (message "Installing auto-complete")
+      (package-install 'auto-complete)
+      )
+  )
+(if (locate-library "auto-complete")
+    (progn
+      (require 'auto-complete)
+      (ac-config-default)
+      (message "Loading auto-complete")
+      )
+  )
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(if (not (locate-library "auctex"))
+    (progn
+      (message "Installing auctex")
+      (package-install 'auctex)
+      )
+  )
 (if (locate-library "auctex")
     (progn
       (load "auctex.el" nil t t)
@@ -167,22 +188,18 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(if (not (locate-library "magit"))
+    (progn
+      (message "Installing magit")
+      (package-install 'magit)
+      )
+  )
 (if (locate-library "magit")
     (progn
       (global-set-key (kbd "C-x g") 'magit-status)
       (setq magit-last-seen-setup-instructions "1.4.0")
       (message "Loading magit"))
   (message "Cannot locate magit")
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(if (locate-library "preview-latex")
-    (progn
-      (load "preview-latex.el" nil t t)
-      (message "Loading preview-latex"))
-  (message "Cannot locate preview-latex")
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -208,7 +225,12 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(if (not (locate-library "ess"))
+    (progn
+      (message "Installing ess")
+      (package-install 'ess)
+      )
+  )
 (if (locate-library "ess-site")
     (progn
       (require 'ess-site)
@@ -318,7 +340,12 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(if (not (locate-library "markdown-mode"))
+    (progn
+      (message "Installing markdown-mode")
+      (package-install 'markdown-mode)
+      )
+  )
 (if (locate-library "markdown-mode")
     (progn
       (require 'markdown-mode)
