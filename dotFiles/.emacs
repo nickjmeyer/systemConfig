@@ -44,8 +44,6 @@
 (global-set-key (kbd "<f7>") 'kill-compilation)
 (global-set-key (kbd "<f8>") 'TeX-command-master)
 
-(setq doc-view-continuous t)
-(setq doc-view-resolution 300)
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 (defun bury-compile-buffer-if-successful (buffer string)
@@ -158,31 +156,17 @@
       (setq LaTeX-item-indent 0)
 
       (setq LaTeX-break-at-separators '(\\\( \\\) \\\[ \\\] \\\{
-					\\\} "$"))
-
-      (setq LaTeX-command-style '(("" "%(PDF)%(latex)
-      -shell-escape %S%(PDFout)")))
+      					\\\} "$"))
 
       (setq reftex-file-extensions
-	    '(("Snw" "Rnw" "nw" "tex" ".tex" ".ltx") ("bib" ".bib")))
+      	    '(("Snw" "Rnw" "nw" "tex" ".tex" ".ltx") ("bib" ".bib")))
       (setq TeX-file-extensions
-	    '("Snw" "Rnw" "nw" "tex" "sty" "cls" "ltx" "texi" "texinfo"))
+      	    '("Snw" "Rnw" "nw" "tex" "sty" "cls" "ltx" "texi" "texinfo"))
 
       (setq TeX-auto-save t)
       (setq TeX-parse-self t)
       (setq TeX-PDF-mode t)
 
-      ;; okular viewer
-      (setq TeX-view-program-list '(("Okular" "okular --unique
-      %o#src:%n%b")))
-      (setq TeX-view-program-selection '((output-pdf "Okular")))
-      (add-hook 'LaTeX-mode-hook
-		(lambda ()
-		  (set
-		   (make-local-variable 'compile-command)
-		   (format "pdflatex --shell-escape -interaction=nonstopmode \"\\input\" %s"
-			       (file-name-sans-extension
-				(file-name-nondirectory buffer-file-name))))))
       (message "Loading auctex"))
   (message "Cannot locate auctex")
   )
