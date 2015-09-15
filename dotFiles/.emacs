@@ -167,6 +167,8 @@
       (setq TeX-parse-self t)
       (setq TeX-PDF-mode t)
 
+      (add-hook 'LaTeX-mode-hook '(flyspell-mode t))
+
       (message "Loading auctex"))
   (message "Cannot locate auctex")
   )
