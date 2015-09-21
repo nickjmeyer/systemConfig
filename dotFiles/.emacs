@@ -1,7 +1,19 @@
 (package-initialize)
 
-(setq initial-major-mode 'org-mode)
-(setq initial-scratch-message "# This is a scratch Org buffer")
+(if (locate-library "package")
+    (progn
+      (require 'package)
+      (add-to-list 'package-archives
+		   '("melpa" . "http://melpa.org/packages/") t)
+      (package-initialize)
+      (message "Loading package")
+      )
+  (message "Cannot locate package")
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 
 (global-auto-revert-mode 1)
 (setq auto-revert-check-vc-info t)
@@ -9,7 +21,6 @@
 (setq vc-follow-symlinks t)
 
 (add-to-list 'load-path "~/systemConfig/emacsConfig/")
-
 
 (add-to-list 'default-frame-alist '(foreground-color . "#aaaaaa"))
 (add-to-list 'default-frame-alist '(background-color . "#222222"))
@@ -88,6 +99,20 @@
 (global-set-key (kbd "C-c C-d d") 'delete-trailing-whitespace-verbose)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(c-set-offset 'access-label '/)
+
+(add-hook 'c-mode-hook 'whitespace-mode)
+(add-hook 'c++-mode-hook 'whitespace-mode)
+(add-hook 'python-mode-hook 'whitespace-mode)
+
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cuh\\'" . c++-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq shell-file-name "bash")
@@ -113,19 +138,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (locate-library "package")
-    (progn
-      (require 'package)
-      (add-to-list 'package-archives
-		   '("melpa" . "http://melpa.org/packages/") t)
-      (package-initialize)
-      (message "Loading package")
-      )
-  (message "Cannot locate package")
-  )
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (if (not (locate-library "auto-complete"))
     (progn
       (message "Installing auto-complete")
@@ -142,6 +154,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (if (not (locate-library "auctex"))
     (progn
       (message "Installing auctex")
@@ -152,6 +165,15 @@
     (progn
       (load "auctex.el" nil t t)
       (require 'tex-site)
+
+
+      (add-hook 'LaTeX-mode-hook '(lambda ()
+				    (auto-fill-mode 1)))
+      (add-hook 'LaTeX-mode-hook '(lambda()
+				    (flyspell-mode t)))
+      (add-hook 'LaTeX-mode-hook '(lambda ()
+				    (setq auto-fill-function
+					  'LaTeX-fill-paragraph)))
 
       (setq LaTeX-item-indent 0)
 
@@ -166,8 +188,6 @@
       (setq TeX-auto-save t)
       (setq TeX-parse-self t)
       (setq TeX-PDF-mode t)
-
-      (add-hook 'LaTeX-mode-hook '(flyspell-mode t))
 
       (message "Loading auctex"))
   (message "Cannot locate auctex")
@@ -256,28 +276,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-					;(c-set-offset (quote cpp-macro) 0 nil)
-(c-set-offset 'access-label '/)
-
-(add-hook 'c-mode-hook 'whitespace-mode)
-(add-hook 'c++-mode-hook 'whitespace-mode)
-(add-hook 'python-mode-hook 'whitespace-mode)
-(add-hook 'org-mode-hook '(lambda ()
-			    (auto-fill-mode 1)))
-(add-hook 'LaTeX-mode-hook '(lambda ()
-			      (auto-fill-mode 1)))
-(add-hook 'markdown-mode-hook '(lambda ()
-				 (auto-fill-mode 1)))
-(add-hook 'LaTeX-mode-hook '(lambda ()
-			      (setq auto-fill-function
-				    'LaTeX-fill-paragraph)))
-
-(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
-(add-to-list 'auto-mode-alist '("\\.cuh\\'" . c++-mode))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 (if (locate-library "make-mode")
     (progn
       (require 'make-mode)
@@ -335,6 +333,9 @@
 (if (locate-library "markdown-mode")
     (progn
       (require 'markdown-mode)
+
+      (add-hook 'markdown-mode-hook '(lambda ()
+				       (auto-fill-mode 1)))
       (autoload 'markdown-mode "markdown-mode"
          "Major mode for editing Markdown files" t)
       (add-to-list 'auto-mode-alist '("\\.text\\'" . gfm-mode))
@@ -352,6 +353,13 @@
     (progn
       (require 'org)
       (require 'ox-html)
+
+      (setq initial-major-mode 'org-mode)
+      (setq initial-scratch-message "# This is a scratch Org buffer")
+
+      (add-hook 'org-mode-hook '(lambda ()
+				  (auto-fill-mode 1)))
+
       (define-key global-map "\C-cl" 'org-store-link)
       (define-key global-map "\C-ca" 'org-agenda)
       (setq org-log-done t)
