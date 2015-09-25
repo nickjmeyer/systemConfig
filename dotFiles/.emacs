@@ -155,6 +155,24 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(if (not (locate-library "jedi"))
+    (progn
+      (message "Installing jedi")
+      (package-install 'jedi)
+      (jedi:install-server)
+      )
+  )
+(if (locate-library "jedi")
+    (progn
+      (add-hook 'python-mode-hook 'jedi:setup)
+      (setq jedi:complete-on-dot t)
+      (message "Loading jedi")
+      )
+  )
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (if (not (locate-library "auctex"))
     (progn
       (message "Installing auctex")
