@@ -439,9 +439,9 @@
 	 ))
       (setq org-publish-project-alist
 	    '(("webpage-org"
-	       :base-directory "~/webpage/_org/"
+	       :base-directory "~/nickjmeyer.github.io/_org/"
 	       :base-extension "org"
-	       :publishing-directory "~/webpage/"
+	       :publishing-directory "~/nickjmeyer.github.io/"
 	       :recursive t
 	       :publishing-function org-html-publish-to-html
 	       :headline-levels 4
@@ -451,9 +451,9 @@
 	       :section-numbers nil
 	       )
 	      ("webpage-static"
-	       :base-directory "~/webpage/_org/"
+	       :base-directory "~/nickjmeyer.github.io/_org/"
 	       :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
-	       :publishing-directory "~/webpage/"
+	       :publishing-directory "~/nickjmeyer.github.io/"
 	       :recursive t
 	       :publishing-function org-publish-attachment)
 	      ("webpage" :components ("webpage-org" "webpage-static"))
