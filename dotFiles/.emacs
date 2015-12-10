@@ -55,6 +55,9 @@
 (global-set-key (kbd "<f7>") 'kill-compilation)
 (global-set-key (kbd "<f8>") 'TeX-command-master)
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 (defun bury-compile-buffer-if-successful (buffer string)
