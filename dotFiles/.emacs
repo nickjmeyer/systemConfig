@@ -377,6 +377,7 @@
 
       (add-hook 'org-mode-hook '(lambda ()
 				  (auto-fill-mode 1)))
+      (add-hook 'org-mode-hook 'turn-on-flyspell)
 
       (define-key global-map "\C-cl" 'org-store-link)
       (define-key global-map "\C-ca" 'org-agenda)
