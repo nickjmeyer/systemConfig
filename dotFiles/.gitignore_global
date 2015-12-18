@@ -1,5 +1,4 @@
 auto
-.gitignore
 .ipynb_checkpoints
 .Rhistory
 *.pdf
