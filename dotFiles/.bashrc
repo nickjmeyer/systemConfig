@@ -55,7 +55,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    
+
     PS1="\[\e[0;32m\]\H\[\e[m\] \[\e[0;0m\]@\[\e[m\] \[\e[0;34m\]\W\[\e[m\] \$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -160,7 +160,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-5.5/lib64:/lib:/usr/loca
 if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 
 export TERM=xterm-256color
-export EDITOR="emacsclient"
+export EDITOR="emacsclient -c"
 export GREP_COLOR="01;36;41"
 
 source /opt/ros/jade/setup.bash
