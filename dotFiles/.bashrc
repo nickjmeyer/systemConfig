@@ -163,3 +163,4 @@ export TERM=xterm-256color
 export EDITOR="emacsclient"
 export GREP_COLOR="01;36;41"
 
+source /opt/ros/jade/setup.bash
