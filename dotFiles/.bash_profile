@@ -1,12 +1,8 @@
-#
-# ~/.bash_profile
-#
-
-eval $(ssh-agent)
+# eval $(ssh-agent)
 
 ## turn off bell
 # if [ -n "$DISPLAY" ]; then
-xset b off
+# xset b off
 # fi
 
 # emacs --daemon

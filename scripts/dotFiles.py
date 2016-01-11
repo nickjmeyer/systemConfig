@@ -10,6 +10,7 @@ home = os.path.expanduser("~/")
 srcDir = os.path.join(home,"systemConfig","dotFiles")
 destDir = home
 dotFiles = [".bash_profile",
+            ".profile",
             ".bashrc",
             ".emacs",
             ".dircolors",
