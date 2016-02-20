@@ -164,3 +164,6 @@ export EDITOR="emacsclient -c"
 export GREP_COLOR="01;36;41"
 
 source /opt/ros/indigo/setup.bash
+if [ -f ~/catkin_ws/devel/setup.bash ]; then
+    source ~/catkin_ws/devel/setup.bash
+fi
