@@ -155,7 +155,8 @@ R-comp-so(){
 }
 
 export PATH=$PATH:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin:/opt/intel/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/compilers_and_libraries_2016/linux/mkl/lib/intel64/:/opt/intel/compilers_and_libraries_2016/linux/lib/intel64:/usr/local/lib
+
 
 if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 
