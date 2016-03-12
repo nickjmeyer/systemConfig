@@ -112,6 +112,8 @@
 (add-hook 'c-mode-hook 'whitespace-mode)
 (add-hook 'c++-mode-hook 'whitespace-mode)
 (add-hook 'python-mode-hook 'whitespace-mode)
+(add-hook 'python-mode-hook (lambda ()
+			      (setq tab-width 4)))
 
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . c++-mode))
