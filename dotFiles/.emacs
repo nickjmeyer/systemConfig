@@ -196,6 +196,8 @@
 				    (setq auto-fill-function
 					  'LaTeX-fill-paragraph)))
 
+      (setq TeX-newline-function 'reindent-then-newline-and-indent)
+
       (setq LaTeX-item-indent 0)
 
       (setq LaTeX-break-at-separators '(\\\( \\\) \\\[ \\\] \\\{
@@ -396,7 +398,6 @@
       ;; (setq org-latex-listings t)
       ;; (add-to-list 'org-latex-packages-alist '("" "listings"))
       (add-to-list 'org-latex-packages-alist '("" "color"))
-      (add-to-list 'org-latex-packages-alist '("" "fullpage"))
       (add-to-list 'org-latex-packages-alist '("" "amsmath"))
       (add-to-list 'org-latex-packages-alist '("" "amssymb"))
       (add-to-list 'org-latex-packages-alist '("" "dsfont"))
