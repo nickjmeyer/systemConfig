@@ -178,6 +178,22 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(if (not (locate-library "gradle-mode"))
+    (progn
+      (message "Installing gradle-mode")
+      (package-install 'gradle-mode)
+      )
+  )
+(if (locate-library "gradle-mode")
+    (progn
+      (require 'gradle-mode)
+      (message "Loading gradle-mode")
+      )
+  )
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (if (not (locate-library "auctex"))
     (progn
       (message "Installing auctex")
