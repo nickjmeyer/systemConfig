@@ -103,6 +103,23 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
+(defun vcs-status ()
+  "Start up appropriate versioncontrol"
+  (interactive)
+  (setq topDir (vc-call-backend
+                (vc-responsible-backend default-directory)
+                'root default-directory))
+  (message topDir)
+  (if (file-exists-p (concat topDir ".hg"))
+      (progn
+        (monky-status))
+    (if (file-exists-p (concat topDir ".git"))
+        (progn
+          (magit-status)))
+    )
+  )
+(global-set-key (kbd "C-x g") 'vcs-status)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
