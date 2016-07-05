@@ -183,3 +183,5 @@ fi
 
 export ROS_HOSTNAME=`hostname -I`
 export ROS_IP=`hostname -I`
+
+export ANDROID_HOME="/home/nick/Android/Sdk"
