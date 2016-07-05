@@ -1,11 +1,11 @@
-(package-initialize)
-
 (if (locate-library "package")
     (progn
       (require 'package)
       (add-to-list 'package-archives
 		   '("melpa" . "http://melpa.org/packages/") t)
       (package-initialize)
+      (when (not package-archive-contents)
+	(package-refresh-contents))
       (message "Loading package")
       )
   (message "Cannot locate package")
@@ -245,6 +245,7 @@
     (progn
       (global-set-key (kbd "C-x g") 'magit-status)
       (setq magit-last-seen-setup-instructions "1.4.0")
+      (setq magit-diff-refine-hunk t)
       (message "Loading magit"))
   (message "Cannot locate magit")
   )
