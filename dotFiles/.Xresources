@@ -6,8 +6,4 @@ XTerm*cursorBlink: true
 
 XTerm*background: #000000
 XTerm*foreground: #A0A0A0
-XTerm*faceName: inconsolata:size=10
-
-! XTerm*background: #FFFFCC
-! XTerm*foreground: #333333
-! XTerm*faceName: inconsolata:size=16
+XTerm*faceName: inconsolata:size=9
