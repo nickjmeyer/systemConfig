@@ -158,7 +158,7 @@ R-comp-so(){
 export GUROBI_HOME=/home/$USER/gurobi651/linux64
 export GRB_LICENSE_FILE=$GUROBI_HOME/gurobi.lic
 
-export PATH=$PATH:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin:/opt/intel/bin:$GUROBI_HOME/bin
+export PATH=/home/$USER/tools/bin:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin:/opt/intel/bin:$GUROBI_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/compilers_and_libraries_2016/linux/mkl/lib/intel64/:/opt/intel/compilers_and_libraries_2016/linux/lib/intel64:/usr/local/lib:$GUROBI_HOME/lib
 
 
@@ -169,6 +169,8 @@ export EDITOR="emacsclient -c"
 export GREP_COLOR="01;36;41"
 
 
+## ros environment variables
+
 if [ -f /opt/ros/indigo/setup.bash ]
 then
     source /opt/ros/indigo/setup.bash
@@ -178,3 +180,8 @@ if [ -f ~/catkin_ws/devel/setup.bash ]
 then
     source ~/catkin_ws/devel/setup.bash
 fi
+
+export ROS_HOSTNAME=`hostname -I`
+export ROS_IP=`hostname -I`
+
+export ANDROID_HOME="/home/nick/Android/Sdk"
