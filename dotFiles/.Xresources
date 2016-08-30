@@ -4,7 +4,7 @@ XTerm*selectToClipboard: true
 XTerm*saveLines: 4096
 XTerm*cursorBlink: true
 
-XTerm*background: #000000
+XTerm*background: #222222
 XTerm*foreground: #A0A0A0
 XTerm*faceName: inconsolata:size=10
 
