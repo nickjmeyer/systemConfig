@@ -126,22 +126,8 @@ fi
 
 alias sudo="sudo "
 alias fucking="sudo "
-alias new="(xterm &)"
-alias emacs="emacs --no-splash -u '$USER'"
-alias e="'emacsclient' -c"
-alias ewm="'emacs' --no-splash -u '$USER'"
-alias ero="'emacs' --no-splash -u '$USER' --eval '(setq buffer-read-only t)'"
 
 export ALTERNATE_EDITOR=""
-
-alias top="'top' -o %CPU c"
-
-alias R="R --quiet --no-save"
-alias aspell="aspell -d en"
-alias shutdown="sudo shutdown 0"
-alias reboot="sudo reboot"
-
-
 
 R-batch(){
     "/usr/lib/R/bin/R" CMD BATCH "$1"
@@ -155,58 +141,10 @@ R-comp-so(){
 }
 
 
-export GUROBI_HOME=/home/$USER/gurobi651/linux64
-export GRB_LICENSE_FILE=$GUROBI_HOME/gurobi.lic
-
-export PATH=/home/$USER/tools/bin:/home/$USER/bin:/home/$USER/Dropbox/bin:/home/$USER/.gem/ruby/2.2.0/bin:/opt/intel/bin:$GUROBI_HOME/bin:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/compilers_and_libraries_2016/linux/mkl/lib/intel64/:/opt/intel/compilers_and_libraries_2016/linux/lib/intel64:/usr/local/lib:$GUROBI_HOME/lib
-
+export PATH=/home/$USER/tools/bin:/home/$USER/bin:/home/$USER/Dropbox/bin:$PATH
 
 if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 
 export TERM=xterm-256color
 export EDITOR="emacsclient -c"
 export GREP_COLOR="01;36;41"
-
-
-## ros environment variables
-
-if [ -f /opt/ros/indigo/setup.bash ]
-then
-    source /opt/ros/indigo/setup.bash
-fi
-
-if [ -f ~/catkin_ws/devel/setup.bash ]
-then
-    source ~/catkin_ws/devel/setup.bash
-fi
-
-export ROS_HOSTNAME=`hostname -I`
-export ROS_IP=`hostname -I`
-
-export ANDROID_HOME=$HOME/Android/Sdk
-
-# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/home/njm/libraries/cocos2d-x/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
-
-# Add environment variable COCOS_X_ROOT for cocos2d-x
-export COCOS_X_ROOT=/home/njm/libraries
-export PATH=$COCOS_X_ROOT:$PATH
-
-# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
-export COCOS_TEMPLATES_ROOT=/home/njm/libraries/cocos2d-x/templates
-export PATH=$COCOS_TEMPLATES_ROOT:$PATH
-
-# Add environment variable NDK_ROOT for cocos2d-x
-export NDK_ROOT=/home/njm/Android/Sdk/ndk-bundle
-export PATH=$NDK_ROOT:$PATH
-
-# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_SDK_ROOT=/home/njm/Android/Sdk
-export PATH=$ANDROID_SDK_ROOT:$PATH
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
-
-# Add environment variable ANT_ROOT for cocos2d-x
-export ANT_ROOT=/usr/share/ant/bin
-export PATH=$ANT_ROOT:$PATH
