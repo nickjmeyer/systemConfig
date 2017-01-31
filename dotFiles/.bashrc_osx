@@ -25,7 +25,9 @@ PURPLE="\[\e[0;35m\]"
 LTBLUE="\[\e[0;36m\]"
 LTGREY="\[\e[0;37m\]"
 PLAIN="\[\e[m\]"
-PS1="${RED}\u@\h:${BLUE}\W $ ${PLAIN}"
+# PS1="${RED}\u@\h:${BLUE}\W $ ${PLAIN}"
+PS1="\[\e[38;5;47m\]\H\[\e[m\] \[\e[38;5;252m\]@\[\e[m\] \[\e[38;5;81m\]\W\[\e[m\] \$ "
+if [ -n "$STY" ]; then export PS1="\[\e[1;31m\](screen)\[\e[m\] $PS1"; fi
 #case $TERM in
 #	    *xterm*|ansi)
 #	    		function settab { print -Pn "\e]1;%n@%m: %~\a" }
