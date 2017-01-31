@@ -3,13 +3,11 @@ auto
 .ipynb_checkpoints
 .Rhistory
 *.pdf
-*.txt
 *.pyc
 *.o
 *.so
 *.d
 *.aux
-*.log
 *~
 .#*
 #*#
