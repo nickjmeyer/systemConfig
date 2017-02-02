@@ -6,11 +6,12 @@ srcDir = os.path.join(home,"systemConfig","dotFiles")
 destDir = home
 if sys.platform == "darwin":
     dotFiles = [(".bashrc_osx", ".bashrc"),
+                (".bash_profile_osx",".bash_profile"),
                 ".dircolors",
                 ".gitconfig",
                 ".gitignore_global"]
 elif sys.platform == "linux" or sys.platform == "linux2":
-    dotFiles = [".bash_profile",
+    dotFiles = [(".bash_profile_ubuntu",".bash_profile"),
                 ".profile",
                 (".bashrc_ubuntu", ".bashrc"),
                 ".dircolors",
