@@ -51,5 +51,6 @@ for df in dotFiles:
             moveDestName = destName + "." + str(ind) + ".old"
 
         print "copying", destName, "to", moveDestName
+        os.rename(destName, moveDestName)
 
     os.symlink(srcName, destName)
