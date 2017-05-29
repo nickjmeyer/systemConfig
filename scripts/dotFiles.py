@@ -44,16 +44,12 @@ for df in dotFiles:
     elif os.path.isfile(destName):
         print "file exists"
         ind = 1
-        newDestName = destName + ".old"
-        while os.path.isfile(newDestName) and not os.path.islink(newDestName):
+        moveDestName = destName + ".old"
+        while os.path.isfile(newDestName) or os.path.islink(newDestName):
             print "trying", newDestName
 
-            newDestName = destName + "." + str(ind) + ".old"
+            moveDestName = destName + "." + str(ind) + ".old"
 
-        if os.path.islink(newDestName):
-            print "removing link"
-            os.unlink(newDestName)
-
-        destName = newDestName
+        print "copying", destName, "to", moveDestName
 
     os.symlink(srcName, destName)
