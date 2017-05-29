@@ -10,6 +10,8 @@ export LD_LIBRARY_PATH=$HOME/tools/lib:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$HOME/tools/include:$CPLUS_INCLUDE_PATH
 export C_INCLUDE_PATH=$HOME/tools/include:$C_INCLUDE_PATH
 
+# Load .profile if it exists
+test -f ~/.profile && source ~/.profile
 # Load .bashrc if it exists
 test -f ~/.bashrc && source ~/.bashrc
 
