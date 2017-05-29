@@ -45,8 +45,8 @@ for df in dotFiles:
         print "file exists"
         ind = 1
         moveDestName = destName + ".old"
-        while os.path.isfile(newDestName) or os.path.islink(newDestName):
-            print "trying", newDestName
+        while os.path.isfile(moveDestName) or os.path.islink(moveDestName):
+            print "trying", moveDestName
 
             moveDestName = destName + "." + str(ind) + ".old"
 
