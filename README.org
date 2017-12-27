@@ -1,0 +1,19 @@
+#+title: System configuration files
+
+* What's here?
+  Dot files, config files, scripts, etc.
+
+* Fixing issues
+** Brightness
+   Adjusting the brightness with ~xbacklight~ does not work using
+   integrated graphics.  Create the file
+   ~/usr/share/X11/xorg.conf.d/20-intel.conf~ with the following
+   content.
+   #+BEGIN_SRC
+   Section "Device"
+       Identifier  "card0"
+       Driver      "intel"
+       Option      "Backlight"  "intel_backlight"
+       BusID       "PCI:0:2:0"
+   EndSection
+   #+END_SRC
